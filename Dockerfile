@@ -1,10 +1,15 @@
-FROM mcr.microsoft.com/playwright:focal
+# Use the official Playwright docker image with browsers pre-installed
+FROM mcr.microsoft.com/playwright:latest
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json package-lock.json* ./
-RUN npm install --unsafe-perm
+# Copy only package.json (we will remove playwright from it)
+COPY package.json ./
 
+# Install ONLY express (no playwright npm install)
+RUN npm install --production
+
+# Copy our code
 COPY index.js ./
 
 EXPOSE 3000
