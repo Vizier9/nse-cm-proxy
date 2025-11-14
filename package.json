@@ -1,0 +1,14 @@
+{
+  "name": "nse-cm-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Proxy to fetch NSE CM bhavcopy using Playwright (browser automation) and stream zip to caller",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "playwright": "^1.38.0"
+  }
+}
