@@ -1,5 +1,5 @@
 const express = require("express");
-const playwright = require("playwright");
+const { chromium } = require("playwright");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -51,7 +51,7 @@ app.get("/", async (req, res) => {
   let browser;
 
   try {
-    browser = await playwright.chromium.launch({
+    browser = await chromium.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"]
     });
